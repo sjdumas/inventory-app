@@ -1,0 +1,27 @@
+<div class="title-content">
+	<h1><%= title %></h1>
+	<div class="title-links">
+		<a href="/guitars">← Back to Inventory</a>
+		<a href="/guitars/<%= guitar.id %>/edit">Edit</a>
+	</div>
+</div>
+<section>
+	<div class="show-guitar">
+		<ul class="guitar-flex">
+			<li><span>ID:</span> <%= guitar.guitar_code %></li>
+			<li><span>Model:</span> <%= guitar.model %></li>
+			<li><span>Brand:</span> <%= guitar.brand_name %></li>
+			<li><span>Category:</span> <%= guitar.category_name %></li>
+			<li><span>Description:</span> <%= truncate(guitar.description, 100) %></li>
+			<li><span>Color:</span> <%= guitar.color || "N/A" %></li>
+			<li><span>Price:</span> $<%= parseFloat(guitar.price).toFixed(2) %></li>
+			<li><span>In Stock:</span> <%= guitar.in_stock ? "Yes" : "No" %></li>
+			<li><span>Quantity:</span> <%= guitar.stock_quantity %></li>
+			<li><span>Added:</span> <%= new Date(guitar.created_at).toLocaleDateString() %></li>
+			<li><span>Updated:</span> <%= new Date(guitar.updated_at).toLocaleDateString() %></li>
+		</ul>
+		<div class="spacer">
+			<a class="btn" href="/guitars/<%= guitar.id %>/confirm-delete">Delete</a>
+		</div>
+	</div>
+</section>

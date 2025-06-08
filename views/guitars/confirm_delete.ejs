@@ -1,0 +1,18 @@
+<div class="title-content">
+	<h1>Delete a Guitar</h1>
+	<p>Are you sure you want to delete the guitar: <strong><%= guitar.model %></strong>?</p>
+</div>
+<div class="error-message">
+	<% if (error) { %>
+		<p class="error"><%= error %></p>
+	<% } %>
+</div>
+<form class="guitar-content" action="/guitars/<%= guitar.id %>/delete" method="POST">
+	<label for="password">Enter Admin Password</label>
+	<input type="password" id="password" name="password" autocomplete="current-password" required />
+	<div class="btn-group">
+		<button type="submit">Delete</button>
+		<a class="btn" href="/guitars/<%= guitar.id %>">Cancel</a>
+	</div>
+</form>
+

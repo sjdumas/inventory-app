@@ -1,0 +1,45 @@
+<div class="title-content">
+	<h1><%= title %></h1>
+</div>
+<div class="guitar-data">
+	<% if (guitars.length === 0) { %>
+		<p>No guitars found.</p>
+	<% } else { %>
+		<div class="table-responsive">
+			<table>
+				<thead>
+					<tr>
+					<th>ID</th>
+					<th>Model</th>
+					<th>Brand</th>
+					<th>Category</th>
+					<th>Color</th>
+					<th>Price</th>
+					<th>Stock</th>
+					<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% guitars.forEach(guitar => { %>
+						<tr>
+							<td><%= guitar.guitar_code %></td>
+							<td><%= guitar.model %></td>
+							<td><%= guitar.brand_name %></td>
+							<td><%= guitar.category_name %></td>
+							<td><%= guitar.color %></td>
+							<td>$<%= guitar.price ? parseFloat(guitar.price).toFixed(2) : "N/A" %></td>
+							<td><%= guitar.stock_quantity %></td>
+							<td>
+							<div class="table-actions">
+								<a href="/guitars/<%= guitar.id %>">View</a>
+								<a href="/guitars/<%= guitar.id %>/edit">Edit</a>
+								<a class="btn" href="/guitars/<%= guitar.id %>/confirm-delete">Delete</a>
+							</div>
+							</td>
+						</tr>
+					<% }) %>
+				</tbody>
+			</table>
+		</div>
+	<% } %>
+</div>

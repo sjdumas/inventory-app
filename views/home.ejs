@@ -1,0 +1,29 @@
+<div class="home-container">
+	<div class="title-content">
+		<h1>Welcome to Guitar Hub</h1>
+		<p class="lead">Track your guitar inventory by model, brand, and category.</p>
+	</div>
+	<h2 class="section-title">Inventory Summary</h2>
+	<div class="dashboard">
+		<div class="card"><h3>Total Guitars</h3><p><%= totalGuitars %></p></div>
+		<div class="card"><h3>In Stock</h3><p><%= inStockCount %></p></div>
+		<div class="card"><h3>Out of Stock</h3><p><%= outOfStockCount %></p></div>
+		<div class="card"><h3>Brands</h3><p><%= brandCount %></p></div>
+		<div class="card"><h3>Categories</h3><p><%= categoryCount %></p></div>
+	</div>
+	<div class="brand-info">
+		<h2 class="section-title">Brand Summary</h2>
+		<div class="brand-dashboard">
+			<% guitarsByBrand.forEach(item => { %>
+				<div class="card">
+					<h3><%= item.brand %></h3>
+					<p><%= item.count %> <%= Number(item.count) === 1 ? "guitar" : "guitars" %></p>
+				</div>
+			<% }) %>
+		</div>
+	</div>
+	<div class="actions">
+		<a href="/guitars" class="btn">View Inventory</a>
+		<a href="/guitars/new" class="btn">Add New Guitar</a>
+	</div>
+</div>

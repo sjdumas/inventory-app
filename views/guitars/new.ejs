@@ -1,0 +1,29 @@
+<div class="title-content">
+	<h1><%= title %></h1>
+	<a href="/guitars">← Back to Inventory</a>
+</div>
+<form class="guitar-content" action="/guitars" method="POST">
+	<label for="brand_id">Brand</label>
+	<select name="brand_id" id="brand_id" required>
+		<% brands.forEach(brand => { %>
+			<option value="<%= brand.id %>"><%= brand.name %></option>
+		<% }) %>
+	</select>
+	<label for="category_id">Category</label>
+	<select name="category_id" id="category_id" required>
+		<% categories.forEach(category => { %>
+			<option value="<%= category.id %>"><%= category.name %></option>
+		<% }) %>
+	</select>
+	<label for="description">Description</label>
+	<input type="text" name="description" id="description" required>
+	<label for="model">Model</label>
+	<input type="text" name="model" id="model" required>
+	<label for="color">Color</label>
+	<input type="text" name="color" id="color">
+	<label for="price">Price</label>
+	<input type="number" name="price" id="price" step="0.01" required>
+	<label for="stock_quantity">Quantity</label>
+	<input type="number" name="stock_quantity" id="stock_quantity" min="0" required>
+	<button class="spacer" type="submit">Add Guitar</button>
+</form>

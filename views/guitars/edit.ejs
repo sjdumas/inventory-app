@@ -1,0 +1,33 @@
+<div class="title-content">
+	<h1><%= title %></h1>
+	<a href="/guitars/<%= guitar.id %>">← Cancel</a>
+</div>
+<form class="guitar-content" action="/guitars/<%= guitar.id %>" method="POST">
+	<div>
+		<label for="guitar_id">Guitar Code</label>
+		<input type="text" value="<%= guitar.guitar_code %>" disabled>
+	</div>
+	<label for="brand_id">Brand</label>
+	<select name="brand_id" id="brand_id" required>
+		<% brands.forEach(brand => { %>
+			<option value="<%= brand.id %>" <%= brand.id === guitar.brand_id ? "selected" : "" %>><%= brand.name %></option>
+		<% }) %>
+	</select>
+	<label for="category_id">Category</label>
+	<select name="category_id" id="category_id" required>
+		<% categories.forEach(category => { %>
+			<option value="<%= category.id %>" <%= category.id === guitar.category_id ? "selected" : "" %>><%= category.name %></option>
+		<% }) %>
+	</select>
+	<label for="description">Description</label>
+	<input type="text" name="description" id="description" value="<%= truncate(guitar.description, 100) %>" required>
+	<label for="model">Model</label>
+	<input type="text" name="model" id="model" value="<%= guitar.model %>" required>
+	<label for="color">Color</label>
+	<input type="text" name="color" id="color" value="<%= guitar.color %>">
+	<label for="price">Price</label>
+	<input type="number" name="price" id="price" step="0.01" value="<%= guitar.price %>" required>
+	<label for="stock_quantity">Quantity</label>
+	<input type="number" name="stock_quantity" id="stock_quantity" min="0" value="<%= guitar.stock_quantity %>" required>
+	<button class="spacer" type="submit">Save Changes</button>
+</form>
