@@ -7,5 +7,5 @@ This is a required project - Inventory Application - for [The Odin Project](http
 - Express
 - EJS
 
-## Demo
-Check out the [live demo](https://inventory-app.sjdumas.com).
+## Project Image
+![Screenshot of the site](./public/images/screenshot.png)
